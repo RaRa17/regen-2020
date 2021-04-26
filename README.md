@@ -20,4 +20,5 @@ Sowohl für die Pumpe als auch das Nachlaufventil ist jeweils 3 Modi benötigt
 - Manuell EIN
 - Manuell AUS
 - Automatik
+
 Tritt in einer der 3 Funktionsblöcke (Wasserstands-Ermittlung, Pumpensteuerung, Ventilsteuerung) ein Fehler auf, werden sowohl die Pumpe als auch das Ventil in den “Manuell AUS” Modus versetzt
