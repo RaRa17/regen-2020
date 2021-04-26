@@ -22,3 +22,22 @@ Sowohl für die Pumpe als auch das Nachlaufventil ist jeweils 3 Modi benötigt
 - Automatik
 
 Tritt in einer der 3 Funktionsblöcke (Wasserstands-Ermittlung, Pumpensteuerung, Ventilsteuerung) ein Fehler auf, werden sowohl die Pumpe als auch das Ventil in den “Manuell AUS” Modus versetzt
+
+## Umsetzung
+Ein paar Details zur Umsetzung
+
+Um "Nebenfunktionen" wie Logging, remote control, u.s.w. zu erleichtern habe ich mich f. einen Raspberry Pi als "zentrale Intelligenz" entschieden.
+
+Im Regenwasser-Tank sind zwei Schwimmer-Schalter die einen pull-up gegen Masse ziehen.
+- "niedrig" 
+    - ca. 30cm über dem Tankboden verbaut
+    - Offen bei höherem Wasserstand
+- "kritisch" 
+    - ca. 15cm über dem Tankboden verbaut
+    - Offen bei niedrigerem Wasserstand
+Durch die "antiparallele" Anordung kann auch eventueller Kabelbruch diagnostiziert werden.
+
+Die eingesetzte Tauchpumpe ist druckgesteuert. D.h. fällt der Druck im Leitungsnetz z.B. durch einen geöffneten Wasserhahn schaltet sich die Pumpe automatisch ein. Beim Erreichen normalen Leitungsdrucks, schaltet die Pumpe ab.
+Die Aktivierung wird anhand des Pumpenstroms mit Hilfe eines Stromwandlers detektiert.
+
+Pumpe und Ventil werden jeweils durch ein Relais gesteuert (Pumpe "normal closed", Ventil "normal open"). Um ein längerfristigeres Anziehen der Relais (und damit Wärmeentwicklung) zu vermeiden kommen Bi-stabile Relais zum Einsatz. 
